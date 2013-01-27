@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parallax Effect</title>
+
+    <style type="text/css">
+        html, body {
+            margin: 0; padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+        }
+        .frame {
+            position: relative;
+            width: 800px;
+            height: 400px;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50px;
+            background-image: url(Manhatten-1240x400.jpg);
+            background-position: left;
+            /*-webkit-transition: background-position 60s linear;*/
+            overflow: hidden;
+        }
+
+        .scroll {
+            background-position: right;
+        }
+
+        .frame .layer {
+            margin: 0px; padding: 0px;
+            position: absolute;
+            top: 0;
+            -webkit-transition: -webkit-transform 60s linear;
+        }
+
+        .layer-1 {
+            z-index: 100;
+            -webkit-transform: translate(400px, 0);
+        }
+        .scroll .layer-1 {
+            -webkit-transform: translate(-900px, 0);
+        }
+        .layer-2 {
+            z-index: 200;
+            -webkit-transform: translate(800px, 0);
+
+        }
+        .scroll .layer-2 {
+            -webkit-transform: translate(-1200px, 0);
+        }
+    </style>
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.frame').addClass("scroll");
+        });
+    </script>
+</head>
+<body>
+<div class="frame">
+    <img src="small-balloons.png" class="layer layer-1"/>
+    <img src="large-balloons.png" class="layer layer-2"/>
+</div>
+
+</body>
+</html>
